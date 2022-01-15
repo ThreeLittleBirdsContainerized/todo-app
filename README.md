@@ -23,3 +23,79 @@
 - Connect to the http://127.0.0.1:5500/
 
 ![Homepage](./img/homepage.png)
+
+
+### API structure
+Each element below is exactly the name of the API. ERROR-DESCRIPTION means the error that the UI should show:
+- new: (POST)
+  - SENT (json)
+    ```
+    { "id": ..,
+      "title": ..,
+      "description": ..
+    }
+    ```
+  - RETURN 
+    - if success 
+       ```
+       "", 220
+       ```
+     - else failure
+       ```
+       { "Response": "ERROR-DESCRIPTION" }, 500
+       ```
+       
+- edit: (POST)
+  - SENT (json)
+    ```
+    { "id": ..,
+      "title": ..,
+      "description": ..
+    }
+    ```
+  - RETURN 
+    - if success 
+     ```
+     "", 220
+     ```
+    - else failure
+     ```
+     { "Response": "ERROR-DESCRIPTION"}, 500
+     ```
+  
+- delete: (GET)
+  - SENT (int)
+     ```id```
+  - RETURN 
+    - if success 
+       ```
+       "", 220
+       ```
+     - else failure
+       ```
+       { "Response": "ERROR-DESCRIPTION" }, 500
+       ```
+       
+- tasks: (GET)
+  - SENT
+    ```
+    nothing
+    ```
+  - RETURN 
+    - if success (list of json object)
+       ```
+       [{ "id": ..,
+        "title": ..,
+        "description": ..
+        },
+        { "id": ..,
+          "title": ..,
+          "description": ..
+        }]
+        , 200
+        ```
+    - else failure
+       ```
+       { "Response": "ERROR-DESCRIPTION" }, 50
+       ```
+      
