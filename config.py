@@ -1,5 +1,5 @@
 # MySQL
 host = "localhost"
 user = "todo"
-password = "password"
+password = "P@s$w0rd123!"
 database = "todo"
