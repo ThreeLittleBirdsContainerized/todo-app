@@ -6,7 +6,7 @@
 - access to the db using `sudo mysql -u root -p`
 - Create an user with 
   ```
-  CREATE USER 'todo'@'localhost' IDENTIFIED BY 'password';
+  CREATE USER 'todo'@'localhost' IDENTIFIED BY 'P@s$w0rd123!';
   GRANT ALL PRIVILEGES ON * . * TO 'todo'@'localhost';
   FLUSH PRIVILEGES;
   \q
