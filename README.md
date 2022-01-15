@@ -101,7 +101,7 @@ Each element below is exactly the name of the API. ERROR-DESCRIPTION means the e
        
        
  ### WORK DIVISION
- - Behnam: 
+- Behnam:
   - [ ] Add Angular to the project
   - [ ] Refactor UI
 - Simmy:
