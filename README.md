@@ -15,3 +15,9 @@
 ### Run Flask
 - In the folder path install the dependecies with `pip install -r requirements.txt'
 - Run flask with `python main.py`
+
+### View the website
+
+- Connect to the http://127.0.0.1:5500/
+
+![image-20220115115041809](.\img\homepage.png)
