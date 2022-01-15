@@ -2,7 +2,7 @@
 
 ### Database setup
 
-- Install MySQL and run the server on the port 3306 (on Ubuntu `sudo apt-get install mysql-server`)
+- Install MySQL and run the server on the port 3306 (on Ubuntu `sudo apt-get install mysql-server` and `sudo mysql_secure_installation utility` to setupt the password for root)
 - access to the db using `mysql -u root -p`
 - Create an user with 
   ```
