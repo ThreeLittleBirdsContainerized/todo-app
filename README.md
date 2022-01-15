@@ -28,14 +28,14 @@
 ### API structure
 Each element below is exactly the name of the API. ERROR-DESCRIPTION means the error that the UI should show:
 - new: (POST)
-  - SENT (json)
+  - INPUT (json)
     ```
     { "id": ..,
       "title": ..,
       "description": ..
     }
     ```
-  - RETURN 
+  - OUTPUT 
     - if success 
        ```
        "", 220
@@ -46,14 +46,14 @@ Each element below is exactly the name of the API. ERROR-DESCRIPTION means the e
        ```
        
 - edit: (POST)
-  - SENT (json)
+  - INPUT (json)
     ```
     { "id": ..,
       "title": ..,
       "description": ..
     }
     ```
-  - RETURN 
+  - OUTPUT 
     - if success 
      ```
      "", 220
@@ -64,9 +64,9 @@ Each element below is exactly the name of the API. ERROR-DESCRIPTION means the e
      ```
   
 - delete: (GET)
-  - SENT (int)
+  - INPUT (int)
      ```id```
-  - RETURN 
+  - OUTPUT 
     - if success 
        ```
        "", 220
@@ -77,11 +77,11 @@ Each element below is exactly the name of the API. ERROR-DESCRIPTION means the e
        ```
        
 - tasks: (GET)
-  - SENT
+  - INPUT
     ```
     nothing
     ```
-  - RETURN 
+  - OUTPUT 
     - if success (list of json object)
        ```
        [{ "id": ..,
