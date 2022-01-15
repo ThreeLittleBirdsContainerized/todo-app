@@ -5,10 +5,12 @@
 - Install MySQL and run the server on the port 3306 (on Ubuntu `sudo apt-get install mysql-server`)
 - access to the db using `mysql -u root -p`
 - Create an user with 
-  ```CREATE USER 'todo'@'localhost' IDENTIFIED BY 'password';
+  ```
+  CREATE USER 'todo'@'localhost' IDENTIFIED BY 'password';
   GRANT ALL PRIVILEGES ON * . * TO 'todo'@'localhost';
   FLUSH PRIVILEGES;
-  \q```
+  \q
+  ```
 - Login with the new user `mysql -u todo -p`
 - Create the database `CREATE DATABASE todo;`
 
