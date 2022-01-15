@@ -98,4 +98,13 @@ Each element below is exactly the name of the API. ERROR-DESCRIPTION means the e
        ```
        { "Response": "ERROR-DESCRIPTION" }, 50
        ```
-      
+       
+       
+ ### WORK DIVISION
+ - Behnam: 
+  - [ ] Add Angular to the project
+  - [ ] Refactor UI
+- Simmy:
+  - [ ] Refactor API following what is written in API structure section
+- Peppe:
+  - [ ] Automatize (Dockerfile (?)) the creation of the database
