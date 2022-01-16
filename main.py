@@ -33,7 +33,7 @@ def edit(id):
     return ("", 204)
 
 
-@app.route("/list", methods=["GET"])
+@app.route("/tasks", methods=["GET"])
 def list():
     list = db.list()
     return dumps(list)
