@@ -5,19 +5,22 @@ import database as db
 from json import dumps
 
 api_v2_cors_config = {
-  "origins": ["http://localhost:4200"], # Angular Container IP
-  "methods": ["DELETE", "GET", "POST"],
-  "allow_headers": ["Authorization", "Content-Type"]
+    "origins": ["http://localhost:4200"],  # Angular Container IP
+    "methods": ["DELETE", "GET", "POST"],
+    "allow_headers": ["Authorization", "Content-Type"],
 }
 
 db.init()
 app = Flask(__name__)
-CORS(app, resources={
-    r"/new": api_v2_cors_config,
-    r"/edit/*": api_v2_cors_config,
-    r"/delete/*": api_v2_cors_config
-})
-app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(
+    app,
+    resources={
+        r"/new": api_v2_cors_config,
+        r"/edit/*": api_v2_cors_config,
+        r"/delete/*": api_v2_cors_config,
+    },
+)
+app.config["CORS_HEADERS"] = "Content-Type"
 
 
 @app.route("/new", methods=["POST"])
@@ -48,7 +51,7 @@ def edit(id):
 def list():
     list = db.list()
     response = flask.jsonify(list)
-    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add("Access-Control-Allow-Origin", "*")
     return dumps(list)
 
 
@@ -62,4 +65,4 @@ def delete(id):
 
 
 if __name__ == "__main__":
-    app.run(port=5500, debug=True)
+    app.run(host="0.0.0.0", port=5500, debug=True)
