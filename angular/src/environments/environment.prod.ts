@@ -1,5 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  NODE_TLS_REJECT_UNAUTHORIZED: false
 };
 
-export const API_URL = 'http://localhost:5500'
+export const API_URL = 'http://api-runner:5500'
