@@ -5,7 +5,7 @@ import database as db
 from json import dumps
 
 api_v2_cors_config = {
-    "origins": ["http://localhost:4200"],  # Angular Container IP
+    "origins": ["*"],  # Angular Container IP
     "methods": ["DELETE", "GET", "POST"],
     "allow_headers": ["Authorization", "Content-Type"],
 }

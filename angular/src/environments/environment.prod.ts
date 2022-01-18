@@ -3,4 +3,4 @@ export const environment = {
   NODE_TLS_REJECT_UNAUTHORIZED: false
 };
 
-export const API_URL = 'http://api-runner:5500'
+export const API_URL = 'http://k8s.monta.li:5500'
