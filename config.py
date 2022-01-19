@@ -1,5 +1,5 @@
 # MySQL
 host = "sql-maria"
-user = "root"
-password = "mypass"
+user = "todo"
+password = "password"
 database = "todo"
