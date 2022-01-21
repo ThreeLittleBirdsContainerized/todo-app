@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: todo-app
+  labels:
+    app: db
+data:
+  DB_HOST: sql-maria
+  DB_USER: todo
+  DB_NAME: todo
