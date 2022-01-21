@@ -20,7 +20,7 @@ spec:
             - containerPort: 5500
           envFrom:
             - configMapRef:
-              name: db-config
+                name: db-config
           env:
             - name: DB_PASSWORD
               valueFrom:
