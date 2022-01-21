@@ -1,16 +1,16 @@
 import mysql.connector
 import random
+import os
 
 from werkzeug.utils import validate_arguments
-import config
 
 prefix = "MySQL:"
 
 mydb = mysql.connector.connect(
-    host=config.host,
-    user=config.user,
-    password=config.password,
-    database=config.database,
+    host=os.environ["DB_HOST"],
+    user=os.environ["DB_USER"],
+    password=os.environ["DB_PASSWORD"],
+    database=os.environ["DB_NAME"],
 )
 
 cursor = mydb.cursor()

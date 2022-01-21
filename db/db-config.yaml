@@ -6,6 +6,6 @@ metadata:
   labels:
     app: db
 data:
-  DB_HOST: sql-maria
+  DB_HOST: sql-maria:5500
   DB_USER: todo
   DB_NAME: todo
