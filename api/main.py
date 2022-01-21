@@ -1,5 +1,5 @@
 import flask
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
 import database as db
 from json import dumps
@@ -30,8 +30,6 @@ def new():
     description = request.json["description"]
     id = db.register(task, description)
     return (str(id), 201)
-
-    # return render_template("form.html", title="New Task", headline="list.append(new)", button=".addTask()")
 
 
 @app.route("/edit/<int:id>", methods=["POST"])
