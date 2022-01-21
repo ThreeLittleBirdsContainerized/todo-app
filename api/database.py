@@ -5,12 +5,6 @@ import os
 from werkzeug.utils import validate_arguments
 
 prefix = "MySQL:"
-print(
-    os.environ["DB_HOST"],
-    os.environ["DB_USER"],
-    os.environ["DB_PASSWORD"],
-    os.environ["DB_NAME"],
-)
 mydb = mysql.connector.connect(
     host=os.environ["DB_HOST"],
     user=os.environ["DB_USER"],
