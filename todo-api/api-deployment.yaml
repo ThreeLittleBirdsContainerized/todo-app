@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: api-deployment
   namespace: todo-app
-  labels:
-    app: api
 spec:
   selector:
     matchLabels:
@@ -15,16 +13,23 @@ spec:
         app: api
     spec:
       containers:
-        - name: python-api
+        - name: todo-api
           image: localhost:32000/todo-api:latest
           ports:
             - containerPort: 5500
-          envFrom:
-            - configMapRef:
-                name: db-config
-          env:
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: DB_PASSWORD
+          env: 
+          - name: MYSQL_USER
+            valueFrom: 
+              configMapKeyRef: 
+                name: db-config 
+                key: MYSQL_USER
+          - name: MYSQL_DATABASE
+            valueFrom: 
+              configMapKeyRef: 
+                name: db-config 
+                key: MYSQL_DATABASE
+          - name: MYSQL_PASSWORD 
+            valueFrom:
+              secretKeyRef: 
+                name: db-secret 
+                key: MYSQL_PASSWORD
