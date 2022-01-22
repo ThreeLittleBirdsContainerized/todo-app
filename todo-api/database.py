@@ -6,10 +6,11 @@ from werkzeug.utils import validate_arguments
 
 prefix = "MySQL:"
 mydb = mysql.connector.connect(
-    host=os.environ["DB_HOST"],
-    user=os.environ["DB_USER"],
-    password=os.environ["DB_PASSWORD"],
-    database=os.environ["DB_NAME"],
+    host=os.environ["DB_SERVICE_SERVICE_HOST"],
+    port=os.environ["DB_SERVICE_SERVICE_PORT"],
+    user=os.environ["MYSQL_USER"],
+    password=os.environ["MYSQL_PASSWORD"],
+    database=os.environ["MYSQL_DATABASE"],
 )
 
 cursor = mydb.cursor()
