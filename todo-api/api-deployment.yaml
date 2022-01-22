@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-deployment
+  namespace: todo-app
   labels:
     app: api
 spec:
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
         - name: python-api
-          image: python-api:latest
+          image: localhost:32000/todo-api:latest
           ports:
             - containerPort: 5500
           envFrom:

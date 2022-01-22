@@ -4,8 +4,8 @@ metadata:
   name: db-config
   namespace: todo-app
   labels:
-    app: db
+    app: todo-db
 data:
-  DB_HOST: sql-maria
-  DB_USER: todo
-  DB_NAME: todo
+  MYSQL_HOST: todo-db
+  MYSQL_USER: todo
+  MYSQL_DATABASE: todo
