@@ -9,11 +9,16 @@ class Database:
     """
     def __init__(self, app, table="tasks"):
         # Enter your database connection details below
-        app.config['MYSQL_HOST'] = os.environ["DB_SERVICE_SERVICE_HOST"]
+        """app.config['MYSQL_HOST'] = os.environ["DB_SERVICE_SERVICE_HOST"]
         app.config['MYSQL_PORT'] = int(os.environ["DB_SERVICE_SERVICE_PORT"])
         app.config['MYSQL_USER'] = os.environ["MYSQL_USER"]
         app.config['MYSQL_PASSWORD'] = os.environ["MYSQL_PASSWORD"]
-        app.config['MYSQL_DB'] = os.environ["MYSQL_DATABASE"]
+        app.config['MYSQL_DB'] = os.environ["MYSQL_DATABASE"]"""
+        app.config['MYSQL_HOST'] = "localhost"
+        app.config['MYSQL_PORT'] = 3306
+        app.config['MYSQL_USER'] = "todo"
+        app.config['MYSQL_PASSWORD'] = "password"
+        app.config['MYSQL_DB'] = "todo"
 
         # Intialize MySQL
         self.mysql = MySQL(app)
@@ -69,7 +74,8 @@ class Database:
 
         # Insert new record using MySQL
         cursor = self.mysql.connection.cursor()
-        cursor.execute(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, {task}, {description})")
+        print(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, {task}, {description})")
+        cursor.execute(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, '{task}', '{description}')")
         # Saving the Actions performed on the DB
         self.mysql.connection.commit()
         print(f"{self.prefix} {id} Registered.")
@@ -88,7 +94,7 @@ class Database:
     def updateTitle(self, id: int, value: str):
         # Update record using MySQL
         cursor = self.mysql.connection.cursor()
-        cursor.execute(f"UPDATE tasks SET title = {value} WHERE id = {id}")
+        cursor.execute(f"UPDATE tasks SET title = '{value}' WHERE id = {id}")
         # Saving the Actions performed on the DB
         self.mysql.connection.commit()
         print(f"{self.prefix} {id} Changed title in {id} to {value}.")
@@ -97,7 +103,7 @@ class Database:
     def updateDescription(self, id: int, value: str):
         # Update record using MySQL
         cursor = self.mysql.connection.cursor()
-        cursor.execute(f"UPDATE tasks SET description = {value} WHERE id = {id}")
+        cursor.execute(f"UPDATE tasks SET description = '{value}' WHERE id = {id}")
         # Saving the Actions performed on the DB
         self.mysql.connection.commit()
         print(f"{self.prefix} {id} Changed description in {id} to {value}.")
