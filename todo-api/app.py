@@ -1,7 +1,8 @@
 import flask
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-import database as db
+
+from database import Database
 from json import dumps
 
 api_v2_cors_config = {
@@ -10,8 +11,11 @@ api_v2_cors_config = {
     "allow_headers": ["Authorization", "Content-Type"],
 }
 
-db.init()
 app = Flask(__name__)
+
+# Intialize MySQL connection
+db = Database(app)
+
 CORS(
     app,
     resources={

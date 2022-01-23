@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 5050
+    - port: 5050 
       targetPort: 5500
   selector:
     app: api
