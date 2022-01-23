@@ -1,3 +1,4 @@
+mysqlclient
+Flask
+flask-cors
 flask_mysqldb
-Flask==2.0.2
-flask-cors==3.0.10
