@@ -1,22 +1,23 @@
 apiVersion: apps/v1 
 kind: Deployment 
 metadata: 
-  name: angular-deployment 
+  name: ui-deployment 
+  namespace: todo-app
   labels: 
-    app: angular
+    app: ui-todo
 spec: 
   replicas: 3 
   selector: 
     matchLabels: 
-      app: angular
+      app: ui-todo
   template: 
     metadata: 
       labels: 
-        app: angular
+        app: ui-todo
     spec: 
       containers: 
       - name: nginx-runner
-        image: localhost:32000/angular:v1 
+        image: localhost:32000/todo-ui:v1 
         ports: 
           - containerPort: 80
 
