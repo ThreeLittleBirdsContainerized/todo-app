@@ -9,16 +9,11 @@ class Database:
     """
     def __init__(self, app, table="tasks"):
         # Enter your database connection details below
-        """app.config['MYSQL_HOST'] = os.environ["DB_SERVICE_SERVICE_HOST"]
+        app.config['MYSQL_HOST'] = os.environ["DB_SERVICE_SERVICE_HOST"]
         app.config['MYSQL_PORT'] = int(os.environ["DB_SERVICE_SERVICE_PORT"])
         app.config['MYSQL_USER'] = os.environ["MYSQL_USER"]
         app.config['MYSQL_PASSWORD'] = os.environ["MYSQL_PASSWORD"]
-        app.config['MYSQL_DB'] = os.environ["MYSQL_DATABASE"]"""
-        app.config['MYSQL_HOST'] = "localhost"
-        app.config['MYSQL_PORT'] = 3306
-        app.config['MYSQL_USER'] = "todo"
-        app.config['MYSQL_PASSWORD'] = "password"
-        app.config['MYSQL_DB'] = "todo"
+        app.config['MYSQL_DB'] = os.environ["MYSQL_DATABASE"]
 
         # Intialize MySQL
         self.mysql = MySQL(app)
