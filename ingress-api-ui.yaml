@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: todo-api-ingress
+  name: todo-app-ingress
   namespace: todo-app
   annotations:
     nginx.ingress.kubernetes.io/enable-cors: "true"
@@ -13,6 +13,9 @@ spec:
   - hosts:
     - api.group3.site
     secretName: api-cloudflare-tls
+  - hosts:
+    - todo.group3.site
+    secretName: ui-cloudflare-tls
   rules:
     - host: api.group3.site
       http:
@@ -24,3 +27,13 @@ spec:
               name: api-loadbalancer
               port: 
                 number: 5050
+    - host: todo.group3.site
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ui-loadbalancer
+              port:
+                number: 5051

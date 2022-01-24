@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: todo-api
-          image: localhost:32000/todo-api:v1
+          image: localhost:32000/todo-api:v6
           ports:
             - containerPort: 5500
           env: 
