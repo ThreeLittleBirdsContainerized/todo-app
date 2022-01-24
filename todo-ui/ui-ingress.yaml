@@ -12,6 +12,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: todo-ui-lb
+                name: ui-loadbalancer
                 port:
                   number: 5051
