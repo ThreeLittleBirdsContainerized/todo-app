@@ -4,9 +4,8 @@ metadata:
   name: mariadb-pv-claim 
   namespace: todo-app
 spec:
-  storageClassName: microk8s-hostpath 
   accessModes: 
-  - ReadWriteMany 
+  - ReadWriteOnce 
   resources: 
     requests:
       storage: 5Gi

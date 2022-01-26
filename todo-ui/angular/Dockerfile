@@ -1,3 +1,4 @@
 FROM nginx
 EXPOSE 80
-COPY dist/angular /usr/share/nginx/html
+WORKDIR dist/angular
+COPY . /usr/share/nginx/html

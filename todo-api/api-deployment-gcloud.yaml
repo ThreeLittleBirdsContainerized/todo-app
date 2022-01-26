@@ -15,9 +15,15 @@ spec:
     spec:
       containers:
         - name: todo-api
-          image: localhost:32000/todo-api:v6
+          image: gcr.io/todo-app-339413/todo-api
           ports:
             - containerPort: 5500
+          readinessProbe:
+            httpGet:
+              path: /tasks
+              port: 5500
+            initialDelaySeconds: 15
+            periodSeconds: 5
           env: 
           - name: MYSQL_USER
             valueFrom: 
