@@ -8,8 +8,7 @@ metadata:
     kubernetes.io/ingress.class: "gce"
     ingress.kubernetes.io/enable-cors: "true"
     ingress.kubernetes.io/cors-allow-methods: "GET, POST, DELETE"
-    ingress.kubernetes.io/cors-allow-origin: "*"
-    ingress.kubernetes.io/cors-allow-credentials: "true"
+    ingress.kubernetes.io/cors-allow-origin: "https://todo.group3.site"
 spec:
   tls:
   - secretName: api-cloudflare-tls

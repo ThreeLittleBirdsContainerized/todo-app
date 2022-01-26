@@ -70,7 +70,7 @@ class Database:
         # Insert new record using MySQL
         cursor = self.mysql.connection.cursor()
         print(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, {task}, {description})")
-        cursor.execute(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, '{task}', '{description}')")
+        cursor.execute(f"INSERT INTO {self.table} (id, title, description) VALUES ({id}, %(title)s, %(description)s)", {"title": task, "description": description})
         # Saving the Actions performed on the DB
         self.mysql.connection.commit()
         print(f"{self.prefix} {id} Registered.")
