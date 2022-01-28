@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: db-egress-network-policy
+  namespace: todo-app
+spec:
+  podSelector:
+    matchLabels:
+      app: db
+  egress:
+  - ports:
+    - port: 3306
+    to:
+    - podSelector:
+        matchLabels:
+          app: api
+  policyTypes:
+  - Egress
+

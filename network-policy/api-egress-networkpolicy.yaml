@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: api-egress-network-policy
+  namespace: todo-app
+spec:
+  podSelector:
+    matchLabels:
+      app: api
+  egress:
+  - to:
+    - podSelector: {}
+    ports:
+      - port: 5500
+        protocol: TCP
+      - port: 5500
+        protocol: UDP
+  policyTypes:
+  - Egress
+
