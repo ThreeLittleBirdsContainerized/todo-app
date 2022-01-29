@@ -17,6 +17,7 @@ spec:
     spec: 
       containers: 
       - name: nginx-runner
+        imagePullPolicy: Always
         image: gcr.io/todo-app-339413/todo-ui:v1.0
         ports: 
           - containerPort: 80
