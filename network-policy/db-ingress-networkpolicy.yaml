@@ -14,4 +14,3 @@ spec:
     - podSelector:
         matchLabels:
           app: api
-

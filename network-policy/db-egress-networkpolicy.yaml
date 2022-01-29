@@ -7,13 +7,7 @@ spec:
   podSelector:
     matchLabels:
       app: db
-  egress:
-  - ports:
-    - port: 3306
-    to:
-    - podSelector:
-        matchLabels:
-          app: api
+  egress: []
   policyTypes:
   - Egress
 
