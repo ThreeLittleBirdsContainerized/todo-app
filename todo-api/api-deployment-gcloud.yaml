@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: todo-api
-          image: gcr.io/todo-app-339413/todo-api
+          image: gcr.io/todo-app-339413/todo-api:v1.0
           ports:
             - containerPort: 5500
           readinessProbe:
