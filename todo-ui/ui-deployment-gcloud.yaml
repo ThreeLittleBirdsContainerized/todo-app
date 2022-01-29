@@ -17,7 +17,7 @@ spec:
     spec: 
       containers: 
       - name: nginx-runner
-        image: gcr.io/todo-app-339413/todo-ui
+        image: gcr.io/todo-app-339413/todo-ui:v1.0
         ports: 
           - containerPort: 80
 
