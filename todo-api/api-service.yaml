@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: api-loadbalancer
   namespace: todo-app
+  labels:
+    app: api-service 
 spec:
   type: LoadBalancer
   ports:

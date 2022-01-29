@@ -8,9 +8,9 @@ spec:
     matchLabels:
       app: ui-todo
   ingress:
-  - ports:
-    - port: 80
-      protocol: TCP
-    from:
-    - podSelector: {}
-      namespaceSelector: {}
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0
+    ports:
+      - port: 80
+        protocol: TCP

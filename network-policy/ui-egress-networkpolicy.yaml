@@ -7,12 +7,7 @@ spec:
   podSelector:
     matchLabels:
       app: ui-todo
-  egress:
-  - ports:
-    - port: 80
-    to:
-    - podSelector: {}
-      namespaceSelector: {}
+  egress: []
   policyTypes:
   - Egress
 
