@@ -1,0 +1,24 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: {{ .Values.ui.name }}-deployment
+  namespace: {{ .Release.Namespace }}
+spec: 
+  replicas: {{ .Values.ui.replicaCount }}
+  selector: 
+    matchLabels: 
+      app: {{ .Values.ui.name }}
+  template: 
+    metadata: 
+      labels: 
+        app: {{ .Values.ui.name }}
+    spec: 
+      containers: 
+      - name: {{ .Release.Name }}-{{ .Values.ui.name }}
+        imagePullPolicy: {{ .Values.ui.container.imagePullPolicy }}
+        image: {{ .Values.ui.container.repository }}/{{ .Values.ui.container.image }}:{{ .Chart.AppVersion }}
+        ports: 
+          - containerPort: {{ .Values.ui.container.port }}
+{{- end }}
+

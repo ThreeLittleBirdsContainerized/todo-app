@@ -1,0 +1,22 @@
+enabled: true
+
+ui:
+  replicaCount: 1
+  name: ui
+
+  container:
+    image: todo-ui
+    repository: gcr.io/todo-app-339413
+    imagePullPolicy: "Always"
+    port: 80
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+
+  service:
+    type: LoadBalancer
+    port: 5051
+

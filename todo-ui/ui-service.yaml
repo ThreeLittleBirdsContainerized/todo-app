@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: ui-loadbalancer
   namespace: todo-app
+  labels:
+    app: ui-service
 spec:
   type: LoadBalancer
   ports:
     - port: 5051
       targetPort: 80
   selector:
-    app: ui-todo 
+    app: ui

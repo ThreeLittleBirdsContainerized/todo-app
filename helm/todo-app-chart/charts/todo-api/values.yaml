@@ -1,0 +1,29 @@
+enabled: true
+
+api:
+  replicaCount: 1
+  name: api
+
+  container:
+    image: todo-api
+    repository: gcr.io/todo-app-339413
+    imagePullPolicy: "Always"
+    port: 5500
+
+  readinessProbe:
+    httpGet:
+      path: /tasks
+      port: 5500
+    initialDelaySeconds: 15
+    periodSeconds: 5
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+
+  service:
+    type: LoadBalancer
+    port: 5050
+

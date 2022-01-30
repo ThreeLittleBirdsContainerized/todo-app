@@ -1,0 +1,44 @@
+{{- if .Values.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.api.name }}-deployment
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.api.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.api.name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-{{ .Values.api.name }}
+          imagePullPolicy: {{ .Values.api.container.imagePullPolicy }}
+          image: {{ .Values.api.container.repository }}/{{ .Values.api.container.image }}:{{ .Chart.AppVersion }}
+          ports:
+            - containerPort: {{ .Values.api.container.port }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.api.readinessProbe.httpGet.path }}
+              port: {{ .Values.api.readinessProbe.httpGet.port }}
+            initialDelaySeconds: {{ .Values.api.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.api.readinessProbe.periodSeconds }}
+          env:
+          {{- range .Values.global.config.data }}
+            - name: {{ .key }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $.Values.global.config.name }}-config
+                  key: {{ .key }}
+          {{- end }}
+          {{- range .Values.global.secret.data }}
+            - name: {{ .key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $.Values.global.secret.name }}-secret
+                  key: {{ .key }}
+          {{- end }}
+{{- end }}

@@ -1,0 +1,24 @@
+enabled: true
+
+db:
+  replicaCount: 1
+  name: db
+
+  container:
+    image: mariadb
+    imagePullPolicy: "IfNotPresent"
+    port: 3306
+
+  volume:
+    name: data
+    mountPath: /var/lib/mysql
+
+    pvc:
+      kind: PersistentVolumeClaim
+      accessMode: ReadWriteOnce
+      storage: 5Gi
+
+  service:
+    type: ClusterIP
+    port: 3306
+    protocol: TCP

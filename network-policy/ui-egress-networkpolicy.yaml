@@ -6,7 +6,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: ui-todo
+      app: ui
   egress: []
   policyTypes:
   - Egress

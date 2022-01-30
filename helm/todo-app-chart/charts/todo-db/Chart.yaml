@@ -1,0 +1,10 @@
+apiVersion: v2
+name: todo-db
+description: A Helm chart for the MariaDB Database of ToDo App on Kubernetes
+
+type: application
+
+version: 0.1.0
+
+appVersion: "10.3.5"
+

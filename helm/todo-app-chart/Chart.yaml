@@ -1,0 +1,26 @@
+apiVersion: v2
+name: todo-app-chart
+description: A Helm chart for Kubernetes ToDo App
+
+type: application
+
+version: 0.1
+
+appVersion: 0.1
+
+dependencies:
+  - name: todo-db
+    condition: enabled
+  - name: todo-api
+    condition: enabled
+  - name: todo-ui
+    condition: enabled
+
+home: https://github.com/ThreeLittleBirdsContainerized/todo-app
+maintainers:
+  - name: Giuseppe Murro
+    url: https://github.com/gmurro
+  - name: Simone Montali
+    url: https://github.com/montali
+  - name: Behnam Bozorgi
+    url: https://github.com/behnam7171

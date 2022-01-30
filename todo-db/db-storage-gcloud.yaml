@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim  
 metadata:
-  name: mariadb-pv-claim 
+  name: db-pv-claim
   namespace: todo-app
 spec:
   accessModes: 

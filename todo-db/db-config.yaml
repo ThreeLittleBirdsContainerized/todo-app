@@ -3,8 +3,6 @@ kind: ConfigMap
 metadata:
   name: db-config
   namespace: todo-app
-  labels:
-    app: todo-db
 data:
   MYSQL_HOST: todo-db
   MYSQL_USER: todo

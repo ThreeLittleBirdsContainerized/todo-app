@@ -1,0 +1,6 @@
+Thank you for deploying the ToDo App.
+Release: {{ .Release.Name }}.
+
+You can access the App via:
+{{ .Release.URL }}
+
