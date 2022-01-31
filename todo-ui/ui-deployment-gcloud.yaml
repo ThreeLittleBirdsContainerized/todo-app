@@ -3,8 +3,7 @@ kind: Deployment
 metadata: 
   name: ui-deployment 
   namespace: todo-app
-spec: 
-  replicas: 1
+spec:
   selector: 
     matchLabels: 
       app: ui

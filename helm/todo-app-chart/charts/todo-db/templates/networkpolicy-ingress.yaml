@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name:  {{ .Values.global.db.name }}-ingress-network-policy
-  namespace:  {{ .Release.Namespace }}
+  namespace:  {{ .Values.global.namespace }}
 spec:
   podSelector:
     matchLabels:

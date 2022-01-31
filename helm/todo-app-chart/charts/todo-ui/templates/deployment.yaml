@@ -3,9 +3,8 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata: 
   name: {{ .Values.global.ui.name }}-deployment
-  namespace: {{ .Release.Namespace }}
-spec: 
-  replicas: {{ .Values.ui.replicaCount }}
+  namespace: {{ .Values.global.namespace }}
+spec:
   selector: 
     matchLabels: 
       app: {{ .Values.global.ui.name }}
@@ -15,7 +14,7 @@ spec:
         app: {{ .Values.global.ui.name }}
     spec: 
       containers: 
-      - name: {{ .Release.Name }}-{{ .Values.ui.name }}
+      - name: {{ .Release.Name }}-{{ .Values.global.ui.name }}
         imagePullPolicy: {{ .Values.ui.container.imagePullPolicy }}
         image: {{ .Values.ui.container.repository }}/{{ .Values.ui.container.image }}:{{ .Chart.AppVersion }}
         ports: 

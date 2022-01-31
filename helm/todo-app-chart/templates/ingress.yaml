@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Release.Name }}-ingress
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.global.namespace }}
   annotations:
     kubernetes.io/ingress.global-static-ip-name: {{ .Release.Name }}-ip
     kubernetes.io/ingress.class: {{ index .Values ".ingress.annotations.kubernetes.io/ingress.class" }}
@@ -26,6 +26,6 @@ spec:
             service:
               name: {{ .http.paths.backend.service.name }}
               port:
-                number: { .http.paths.backend.service.port.number }}
+                number: {{ .http.paths.backend.service.port.number }}
   {{- end }}
 {{- end }}

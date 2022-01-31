@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment 
 metadata:
   name: {{ .Values.global.db.name }}-deployment
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.global.namespace }}
 spec:
   replicas: {{ .Values.db.replicaCount }}
   selector:
@@ -15,7 +15,7 @@ spec:
         app: {{ .Values.global.db.name }}
     spec:
       containers: 
-      - name: {{ .Release.Name }}-{{ .Values.db.name }}
+      - name: {{ .Release.Name }}-{{ .Values.global.db.name }}
         image: {{ .Values.db.container.image }}:{{ .Chart.AppVersion }}
         imagePullPolicy: {{ .Values.db.container.imagePullPolicy }}
         ports: 
@@ -25,14 +25,14 @@ spec:
           - name: {{ .key }}
             valueFrom:
               configMapKeyRef:
-                name: {{ $.Values.global.config.name }}-config
+                name: {{ $.Values.global.config.name }}
                 key: {{ .key }}
         {{- end }}
         {{- range .Values.global.secret.data }}
           - name: {{ .key }}
             valueFrom:
               secretKeyRef:
-                name: {{ $.Values.global.secret.name }}-secret
+                name: {{ $.Values.global.secret.name }}
                 key: {{ .key }}
         {{- end }}
         volumeMounts: 
@@ -41,5 +41,5 @@ spec:
       volumes: 
       - name: {{ .Values.db.volume.name }}
         persistentVolumeClaim: 
-          claimName: {{ .Values.db.name }}-pv-claim
+          claimName: {{ .Values.global.db.name }}-pv-claim
 {{- end }}

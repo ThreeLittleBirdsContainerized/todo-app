@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.global.config.name }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.global.namespace }}
 data:
 {{- range .Values.global.config.data }}
   {{ .key }}: {{ .value }}

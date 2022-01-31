@@ -2,8 +2,8 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: {{ .Values.global.api.name }}db-egress-network-policy
-  namespace: {{ .Release.Namespace }}
+  name: {{ .Values.global.api.name }}-{{ .Values.global.db.name }}-egress-network-policy
+  namespace: {{ .Values.global.namespace }}
 spec:
   podSelector:
     matchLabels:

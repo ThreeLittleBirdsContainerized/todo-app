@@ -1,7 +1,6 @@
 enabled: true
 
 api:
-  replicaCount: 1
 
   container:
     image: todo-api

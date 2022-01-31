@@ -3,9 +3,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.global.api.name }}-deployment
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ .Values.global.namespace }}
 spec:
-  replicas: {{ .Values.api.replicaCount }}
   selector:
     matchLabels:
       app: {{ .Values.global.api.name }}
@@ -15,7 +14,7 @@ spec:
         app: {{ .Values.global.api.name }}
     spec:
       containers:
-        - name: {{ .Release.Name }}-{{ .Values.api.name }}
+        - name: {{ .Release.Name }}-{{ .Values.global.api.name }}
           imagePullPolicy: {{ .Values.api.container.imagePullPolicy }}
           image: {{ .Values.api.container.repository }}/{{ .Values.api.container.image }}:{{ .Chart.AppVersion }}
           ports:
@@ -31,14 +30,14 @@ spec:
             - name: {{ .key }}
               valueFrom:
                 configMapKeyRef:
-                  name: {{ $.Values.global.config.name }}-config
+                  name: {{ $.Values.global.config.name }}
                   key: {{ .key }}
           {{- end }}
           {{- range .Values.global.secret.data }}
             - name: {{ .key }}
               valueFrom:
                 secretKeyRef:
-                  name: {{ $.Values.global.secret.name }}-secret
+                  name: {{ $.Values.global.secret.name }}
                   key: {{ .key }}
           {{- end }}
 {{- end }}

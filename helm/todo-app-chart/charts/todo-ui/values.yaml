@@ -1,7 +1,6 @@
 enabled: true
 
 ui:
-  replicaCount: 1
 
   container:
     image: todo-ui

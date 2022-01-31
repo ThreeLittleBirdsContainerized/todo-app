@@ -1,6 +1,5 @@
 ingress:
   enabled: false
-  className: ""
   annotations:
     kubernetes.io/ingress.class: "gce"
     ingress.kubernetes.io/enable-cors: "true"
@@ -10,7 +9,7 @@ ingress:
     - host: api.group3.site
       http:
         paths:
-        - path: /
+          path: /
           pathType: Prefix
           backend:
             service:
@@ -20,7 +19,7 @@ ingress:
     - host: todo.group3.site
       http:
         paths:
-        - path: /
+          path: /
           pathType: Prefix
           backend:
             service:
@@ -32,6 +31,8 @@ ingress:
   - secretName: ui-cloudflare-tls
 
 global:
+  namespace: todo-app
+
   db:
     name: db
   api:
