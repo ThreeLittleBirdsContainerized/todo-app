@@ -1,10 +1,10 @@
 ingress:
-  enabled: false
+  enabled: true
   annotations:
-    kubernetes.io/ingress.class: "gce"
-    ingress.kubernetes.io/enable-cors: "true"
-    ingress.kubernetes.io/cors-allow-methods: "GET, POST, DELETE"
-    ingress.kubernetes.io/cors-allow-origin: "https://todo.group3.site"
+    ingressClass: "gce"
+    enableCors: "true"
+    corsAllowMethods: "GET, POST, DELETE"
+    corsAllowOrigin: "https://todo.group3.site"
   hosts:
     - host: api.group3.site
       http:
@@ -31,7 +31,7 @@ ingress:
   - secretName: ui-cloudflare-tls
 
 global:
-  namespace: todo-app
+  namespace: todo-app1
 
   db:
     name: db

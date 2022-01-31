@@ -12,7 +12,7 @@ spec:
   - to:
     - podSelector:
         matchLabels:
-          app: {{ .Values.global.api.name }}
+          app: {{ .Values.global.db.name }}
     ports:
       - port: 3306
         protocol: TCP

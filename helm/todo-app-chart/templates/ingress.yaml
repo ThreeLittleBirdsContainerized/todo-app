@@ -6,18 +6,18 @@ metadata:
   namespace: {{ .Values.global.namespace }}
   annotations:
     kubernetes.io/ingress.global-static-ip-name: {{ .Release.Name }}-ip
-    kubernetes.io/ingress.class: {{ index .Values ".ingress.annotations.kubernetes.io/ingress.class" }}
-    ingress.kubernetes.io/enable-cors: {{ index .Values ".ingress.annotations.ingress.kubernetes.io/enable-cors" }}
-    ingress.kubernetes.io/cors-allow-methods: {{ index .Values ".ingress.annotations.ingress.kubernetes.io/cors-allow-methods" }}
-    ingress.kubernetes.io/cors-allow-origin: {{ index .Values ".ingress.annotations.ingress.kubernetes.io/cors-allow-origin" }}
+    kubernetes.io/ingress.class: {{ .Values.ingress.annotations.ingressClass | quote }}
+    ingress.kubernetes.io/enable-cors: {{ .Values.ingress.annotations.enableCors | quote | quote }}
+    ingress.kubernetes.io/cors-allow-methods: {{ .Values.ingress.annotations.corsAllowMethods | quote }}
+    ingress.kubernetes.io/cors-allow-origin: {{ .Values.ingress.annotations.corsAllowOrigin | quote }}
 spec:
   tls:
   {{- range .Values.ingress.tls }}
-    secretName: {{ .secretName }}
+    - secretName: {{ .secretName }}
   {{- end }}
   rules:
   {{- range .Values.ingress.hosts }}
-    host: {{ .host }}
+  - host: {{ .host }}
     http:
       paths:
         - path: {{ .http.paths.path }}
