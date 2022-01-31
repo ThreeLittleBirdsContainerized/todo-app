@@ -3,13 +3,13 @@
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.ui.name }}-scaler
+  name: {{ .Values.global.ui.name }}-scaler
   namespace: {{ .Release.Namespace }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ .Values.ui.name }}-deployment
+    name: {{ .Values.global.ui.name }}-deployment
   minReplicas: {{ .Values.ui.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.ui.autoscaling.maxReplicas }}
   metrics:

@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.api.name }}-service
+  name: {{ .Values.global.api.name }}-loadbalancer
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.api.name }}-service
+    app: {{ .Values.global.api.name }}-service
 spec:
   type: {{ .Values.api.service.type }}
   ports:
     - port: {{ .Values.api.service.port }}
       targetPort: {{ .Values.api.container.port }}
   selector:
-    app: {{ .Values.api.name }}
+    app: {{ .Values.global.api.name }}
 {{- end }}

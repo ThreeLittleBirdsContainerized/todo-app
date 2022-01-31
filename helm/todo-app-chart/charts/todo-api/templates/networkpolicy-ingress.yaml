@@ -1,0 +1,18 @@
+{{- if .Values.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ .Values.global.api.name }}-ingress-network-policy
+  namespace: {{ .Release.Namespace }}
+spec:
+  podSelector:
+    matchLabels:
+      app: {{ .Values.global.api.name }}
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: {{ .Values.api.ingress.ipBlock }}
+    ports:
+      - port: {{ .Values.api.ingress.port }}
+        protocol: {{ .Values.api.ingress.protocol }}
+{{- end }}

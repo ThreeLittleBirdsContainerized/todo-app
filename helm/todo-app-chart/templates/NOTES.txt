@@ -1,6 +1,6 @@
 Thank you for deploying the ToDo App.
 Release: {{ .Release.Name }}.
 
-You can access the App via:
-{{ .Release.URL }}
+You can access the Web App via: https://todo.group3.site
+The API are available at: https://api.group3.site
 

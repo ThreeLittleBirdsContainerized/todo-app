@@ -9,12 +9,12 @@ version: 0.1
 appVersion: 0.1
 
 dependencies:
-  - name: todo-db
-    condition: enabled
-  - name: todo-api
-    condition: enabled
-  - name: todo-ui
-    condition: enabled
+  #- name: todo-db
+  #  condition: enabled
+  #- name: todo-api
+  #  condition: enabled
+  #- name: todo-ui
+  #  condition: enabled
 
 home: https://github.com/ThreeLittleBirdsContainerized/todo-app
 maintainers:

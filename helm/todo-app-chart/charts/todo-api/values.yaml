@@ -2,7 +2,6 @@ enabled: true
 
 api:
   replicaCount: 1
-  name: api
 
   container:
     image: todo-api
@@ -26,4 +25,9 @@ api:
   service:
     type: LoadBalancer
     port: 5050
+
+  ingress:
+      ipBlock: 0.0.0.0/0
+      port: 5500
+      protocol: TCP
 

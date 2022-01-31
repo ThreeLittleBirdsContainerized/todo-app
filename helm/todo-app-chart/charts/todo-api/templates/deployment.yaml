@@ -2,17 +2,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.api.name }}-deployment
+  name: {{ .Values.global.api.name }}-deployment
   namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.api.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.api.name }}
+      app: {{ .Values.global.api.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.api.name }}
+        app: {{ .Values.global.api.name }}
     spec:
       containers:
         - name: {{ .Release.Name }}-{{ .Values.api.name }}
