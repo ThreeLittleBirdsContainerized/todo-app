@@ -31,7 +31,7 @@ ingress:
   - secretName: ui-cloudflare-tls
 
 global:
-  namespace: todo-app1
+  namespace: todo-app
 
   db:
     name: db
