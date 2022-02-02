@@ -55,8 +55,8 @@ global:
     name: db-secret
     data:
       - key: MYSQL_ROOT_PASSWORD
-        value: bXlwYXNzCg==
+        value: bXlwYXNz
       - key: MYSQL_PASSWORD
-        value: cGFzc3dvcmQK
+        value: cGFzc3dvcmQ=
 
 
