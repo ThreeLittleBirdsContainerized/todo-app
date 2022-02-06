@@ -23,7 +23,7 @@ A demo of the application is available at the following link: [https://todo.grou
     │   ├── .github                     
     |	│   └── workflows                   # Workflow for Github action
     │   ├── helm                     
-    |	│   └── todo-app-chart              # Helm chart of the project
+    |   │   └── todo-app-chart              # Helm chart of the project
     │   ├── todo-ui            
     │   │   ├── angular                     # Folder of the angular project containing the Dockerfile to build the image
     │   │   ├── ui-deployment-gcloud.yaml   # Deployment for the ui pods
