@@ -21,7 +21,7 @@ A demo of the application is available at the following link: [https://todo.grou
     ├── uml.png                             # UML diagram of the project
     ├── todo-app                            # Folder containing the project code
     │   ├── .github                     
-    |	│   └── workflows                   # Workflow for Github action
+    |   │   └── workflows                   # Workflow for Github action
     │   ├── helm                     
     |   │   └── todo-app-chart              # Helm chart of the project
     │   ├── todo-ui            
