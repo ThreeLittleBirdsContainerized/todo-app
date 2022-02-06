@@ -1,0 +1,4 @@
+mysqlclient
+Flask
+flask-cors
+flask_mysqldb

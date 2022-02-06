@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: todo-app
+spec:
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: todo-api
+          imagePullPolicy: Always
+          image: gcr.io/todo-app-339413/todo-api:v1.0
+          ports:
+            - containerPort: 5500
+          readinessProbe:
+            httpGet:
+              path: /tasks
+              port: 5500
+            initialDelaySeconds: 15
+            periodSeconds: 5
+          env: 
+          - name: MYSQL_USER
+            valueFrom: 
+              configMapKeyRef: 
+                name: db-config 
+                key: MYSQL_USER
+          - name: MYSQL_DATABASE
+            valueFrom: 
+              configMapKeyRef: 
+                name: db-config 
+                key: MYSQL_DATABASE
+          - name: MYSQL_PASSWORD 
+            valueFrom:
+              secretKeyRef: 
+                name: db-secret 
+                key: MYSQL_PASSWORD
