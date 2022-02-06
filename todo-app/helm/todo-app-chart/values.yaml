@@ -1,0 +1,62 @@
+ingress:
+  enabled: true
+  annotations:
+    ingressClass: "gce"
+    enableCors: "true"
+    corsAllowMethods: "GET, POST, DELETE"
+    corsAllowOrigin: "https://todo.group3.site"
+  hosts:
+    - host: api.group3.site
+      http:
+        paths:
+          path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: api-loadbalancer
+              port:
+                number: 5050
+    - host: todo.group3.site
+      http:
+        paths:
+          path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: ui-loadbalancer
+              port:
+                number: 5051
+  tls:
+  - secretName: api-cloudflare-tls
+  - secretName: ui-cloudflare-tls
+
+global:
+  namespace: todo-app
+
+  db:
+    name: db
+  api:
+    name: api
+  ui:
+    name: ui
+
+  config:
+    name: db-config
+    data:
+      - key: MYSQL_HOST
+        value: todo-db
+      - key: MYSQL_USER
+        value: todo
+      - key: MYSQL_DATABASE
+        value: todo
+
+  secret:
+    type: Opaque
+    name: db-secret
+    data:
+      - key: MYSQL_ROOT_PASSWORD
+        value: bXlwYXNz
+      - key: MYSQL_PASSWORD
+        value: cGFzc3dvcmQ=
+
+

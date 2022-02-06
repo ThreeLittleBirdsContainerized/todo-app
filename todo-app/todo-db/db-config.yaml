@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: todo-app
+data:
+  MYSQL_HOST: todo-db
+  MYSQL_USER: todo
+  MYSQL_DATABASE: todo

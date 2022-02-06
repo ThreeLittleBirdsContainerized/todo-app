@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: ui-egress-network-policy
+  namespace: todo-app
+spec:
+  podSelector:
+    matchLabels:
+      app: ui
+  egress: []
+  policyTypes:
+  - Egress
+

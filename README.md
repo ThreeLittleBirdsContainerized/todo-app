@@ -1,108 +1,71 @@
-# todo-list
+# :whale: ToDo App :memo:
 
-### Database setup
+This repository contains a project realized as part of the *Software Containerization* course of the Master's degree in Artificial Intelligence, Vrije Universiteit Amsterdam. 
 
-- Install MySQL and run the server on the port 3306 (on Ubuntu `sudo apt-get install mysql-server` and `sudo mysql_secure_installation utility` to setupt the password for root)
-- access to the db using `sudo mysql -u root -p`
-- Create an user with
-  ```
-  CREATE USER 'todo'@'localhost' IDENTIFIED BY 'password';
-  GRANT ALL PRIVILEGES ON * . * TO 'todo'@'localhost';
-  FLUSH PRIVILEGES;
-  \q
-  ```
-- Login with the new user `mysql -u todo -p`
-- Create the database `CREATE DATABASE todo;`
+*ToDo App* is a website allowing simple Create, Read, Update, Delete operations to manage tasks. It is composed of:  
 
-### Run Flask
+- frontend built in Angular, reading data from the API  
+- API built in Python with Flask   
+- MySQL database, implemented on MariaDB
 
-- In the folder path install the dependecies with `pip install -r requirements.txt'
-- Run flask with `python main.py`
+This project coded from scratch and google cloud was used to deploy the project.
 
-### View the website
+These components are deployed in containers using Kubernetes Engine on Google Cloud.
 
-- Connect to the http://127.0.0.1:5500/
+A demo of the application is available at the following link: [https://todo.group3.site](https://todo.group3.site/)
 
-![Homepage](./img/homepage.png)
+## Repository structure
 
-### API structure
+    .
+    ├── presentation.pdf                    # Slides showed during the presentation
+    ├── uml.png                             # UML diagram of the project
+    ├── todo-app                            # Folder containing the project code
+    │   ├── .github                     
+    |   │   └── workflows                   # Workflow for Github action
+    │   ├── helm                     
+    |   │   └── todo-app-chart              # Helm chart of the project
+    │   ├── todo-ui            
+    │   │   ├── angular                     # Folder of the angular project containing the Dockerfile to build the image
+    │   │   ├── ui-deployment-gcloud.yaml   # Deployment for the ui pods
+    │   │   ├── ui-horizontal-scaler.yaml   # Horizonatal pod autoscaler for the ui pods
+    │   │   └── ui-service.yaml             # Loadbalancer for the ui pods 
+    │   ├── todo-api          
+    │   │   ├── api-deployment-gcloud.yaml  # Deployment for the api pods
+    │   │   ├── api-horizontal-scaler.yaml  # Horizonatal pod autoscaler for the api pods
+    │   │   ├── api-service.yaml            # Loadbalancer for the api pods 
+    │   │   ├── app.py                      # Source code for the API using Flask
+    │   │   ├── database.py                 # Class defining functions to access to the database data
+    │   │   └── Dockerfile                  # Dockerfile to build the api image
+    │   ├── todo-db          
+    │   │   ├── db-deployment.yaml          # Deployment for the db pod
+    │   │   ├── db-storage-gcloud.yaml      # PersistentVolumeClaim for the volume definition
+    │   │   ├── db-service.yaml             # ClusterIP for the db pod 
+    │   │   ├── db-config.yaml              # Config file for access to the database
+    │   │   └── db-secret.yaml              # Password for the database users
+    │   ├── network-policy                  # Ingress and egress rules for db, api and ui
+    │   ├── rbac                            # Folder containing yaml files to connect user (gmail account since we are using the google cloud) to roles
+    │   ├── ingress-gcloud.yaml             # Ingress to expose the api and ui services externally
+    │   ├── todo-app-namespace.yaml         # Namespace within which to create all the K8s objects 
+    └── README.md
 
-Each element below is exactly the name of the API. ERROR-DESCRIPTION means the error that the UI should show:
+## Schema
 
-- /new: (POST)
-  - INPUT (json)
-    ```
-    { "id": ..,
-      "title": ..,
-      "description": ..
-    }
-    ```
-  - OUTPUT
-    - if success
-      ```
-      "", 200
-      ```
-    - else failure
-      ```
-      { "Response": "ERROR-DESCRIPTION" }, 500
-      ```
-- /edit/<id>: (POST)
-  - INPUT (json)
-    ```
-    { "id": ..,
-      "title": ..,
-      "description": ..
-    }
-    ```
-  - OUTPUT
-    - if success
-    ```
-    "", 200
-    ```
-    - else failure
-    ```
-    { "Response": "ERROR-DESCRIPTION"}, 500
-    ```
-- /<id>: (DELETE)
-  - INPUT
-  - OUTPUT
-    - if success
-      ```
-      "", 220
-      ```
-    - else failure
-      ```
-      { "Response": "ERROR-DESCRIPTION" }, 500
-      ```
-- tasks: (GET)
-  - INPUT
-    ```
-    nothing
-    ```
-  - OUTPUT
-    - if success (list of json object)
-      ```
-      [{ "id": ..,
-       "title": ..,
-       "description": ..
-       },
-       { "id": ..,
-         "title": ..,
-         "description": ..
-       }]
-       , 200
-      ```
-    - else failure
-      ```
-      { "Response": "ERROR-DESCRIPTION" }, 50
-      ```
+The architecture of the project is represented in the following UML diagram:
 
-### WORK DIVISION
+![output](./UML.png)
 
-- Behnam:
-  - [ ] Add Angular to the project
-  - [ ] Refactor UI
-- Simmy:
-  - [ ] Refactor API following what is written in API structure section
-- Peppe:
-  - [ ] Automatize (Dockerfile (?)) the creation of the database
+## Versioning
+
+We use Git for versioning.
+
+
+
+## Group members
+*Group 3 - Software Containerization 2022 - VU*
+
+| Student No. |   Name   | Surname |           Email           |                Username                 |
+| :---------: | :------: | :-----: | :-----------------------: | :-------------------------------------: |
+|             |  Behnam  | Borzogi | `b.borzogi@student.vu.nl` |      [behnam7171](https://github.com/behnam7171)      |
+|   2740494   | Giuseppe |  Murro  |  `g.murro@student.vu.nl`  |  [_gmurro_](https://github.com/gmurro)  |
+|   2741135   |  Simone  | Montali | `s.montali@student.vu.nl` | [_montali_](https://github.com/montali) |
+  
