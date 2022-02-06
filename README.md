@@ -1,6 +1,6 @@
 # :whale: ToDo App :memo:
 
-This repository contains a project realized as part of the *Software Containerization* course of the Master's degree in Artificial Intelligence, Vrije Universiteit Amsterdam. 
+This repository (accessible at [ThreeLittleBirdsContainerized/todo-app](https://github.com/ThreeLittleBirdsContainerized/todo-app)) contains a project realized as part of the *Software Containerization* course of the Master's degree in Artificial Intelligence, Vrije Universiteit Amsterdam. 
 
 *ToDo App* is a website allowing simple Create, Read, Update, Delete operations to manage tasks. It is composed of:  
 
