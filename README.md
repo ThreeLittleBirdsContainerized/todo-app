@@ -52,7 +52,7 @@ A demo of the application is available at the following link: [https://todo.grou
 
 The architecture of the project is represented in the following UML diagram:
 
-![output](uml.png)
+![output](./uml.png)
 
 ## Versioning
 
