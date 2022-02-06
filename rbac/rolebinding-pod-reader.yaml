@@ -3,12 +3,15 @@ apiVersion: rbac.authorization.k8s.io/v1
 # You need to already have a Role named "pod-reader" in that namespace.
 kind: RoleBinding
 metadata:
-  name: admin-pods
+  name: admin-pods-reader
   namespace: todo-app
 subjects:
 # You can specify more than one "subject"
 - kind: User
   name: b.bozorgi92@gmail.com # "name" is case sensitive
+  namespace: todo-app
+- kind: User
+  name: sim.montali@gmail.com # "name" is case sensitive
   namespace: todo-app
 roleRef:
   # "roleRef" specifies the binding to a Role / ClusterRole
