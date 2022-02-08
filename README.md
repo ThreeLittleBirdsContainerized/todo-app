@@ -8,8 +8,6 @@ This repository (accessible at [ThreeLittleBirdsContainerized/todo-app](https://
 - API built in Python with Flask   
 - MySQL database, implemented on MariaDB
 
-This project coded from scratch and google cloud was used to deploy the project.
-
 These components are deployed in containers using Kubernetes Engine on Google Cloud.
 
 A demo of the application is available at the following link: [https://todo.group3.site](https://todo.group3.site/)
