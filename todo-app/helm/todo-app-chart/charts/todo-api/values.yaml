@@ -4,7 +4,7 @@ api:
 
   container:
     image: todo-api
-    repository: gcr.io/todo-app-339413
+    repository: gcr.io/todo-app-340708
     imagePullPolicy: "Always"
     port: 5500
 

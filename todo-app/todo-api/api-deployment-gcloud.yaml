@@ -15,7 +15,7 @@ spec:
       containers:
         - name: todo-api
           imagePullPolicy: Always
-          image: gcr.io/todo-app-339413/todo-api:v1.0
+          image: gcr.io/todo-app-340708/todo-api:v1.0
           ports:
             - containerPort: 5500
           readinessProbe:
