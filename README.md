@@ -63,7 +63,7 @@ We use Git for versioning.
 
 | Student No. |   Name   | Surname |           Email           |                Username                 |
 | :---------: | :------: | :-----: | :-----------------------: | :-------------------------------------: |
-|   2738163         |  Behnam  | Borzogi | `b.bozorgi@student.vu.nl` |      [behnam7171](https://github.com/behnam7171)      |
+|   2738163         |  Behnam  | Bozorgi | `b.bozorgi@student.vu.nl` |      [behnam7171](https://github.com/behnam7171)      |
 |   2740494   | Giuseppe |  Murro  |  `g.murro@student.vu.nl`  |  [_gmurro_](https://github.com/gmurro)  |
 |   2741135   |  Simone  | Montali | `s.montali@student.vu.nl` | [_montali_](https://github.com/montali) |
   
